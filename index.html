@@ -1,3 +1,95 @@
+<?php
+$profile = [
+  'siteTitle' => 'Alingga Mahesa Prima - Web Developer',
+  'brand' => 'LINGSDEV',
+  'initial' => 'A',
+  'name' => 'Alingga Mahesa Prima',
+  'headline' => 'Website modern yang siap dipakai.',
+  'status' => 'Web Developer / PHP / Frontend',
+  'description' => 'Saya membangun website, landing page, dashboard, dan aplikasi web sederhana yang cepat dibuka, rapi di HP, dan mudah dipahami oleh user.',
+  'aboutTitle' => 'Saya suka mengubah brief singkat menjadi produk web yang jelas, modern, dan fungsional.',
+  'aboutText' => 'Fokus saya ada di pengembangan website dengan HTML, CSS, JavaScript, PHP, dan MySQL. Cocok untuk kebutuhan portofolio, profil bisnis, sistem sekolah, landing page, sampai dashboard admin.',
+  'whatsapp' => 'https://wa.me/6289652936084',
+  'instagram' => 'https://instagram.com/alingga2605',
+  'instagramLabel' => '@alingga2605',
+  'email' => 'alinggamahesa8@gmail.com',
+  'github' => 'https://github.com/username',
+  'githubLabel' => 'github.com/username',
+  'logo' => 'logo.png',
+  'photo' => 'profil.jpg',
+];
+
+$metrics = [
+  ['value' => 'PHP', 'label' => 'Backend utama'],
+  ['value' => 'Mobile', 'label' => 'Design-first'],
+  ['value' => 'Fast', 'label' => 'Loading ringan'],
+];
+
+$stats = [
+  ['value' => '4+', 'label' => 'Project konsep & nyata'],
+  ['value' => '8', 'label' => 'Skill utama'],
+  ['value' => '<24j', 'label' => 'Respon chat'],
+];
+
+$quickLinks = [
+  ['label' => 'WhatsApp', 'text' => 'Diskusi project', 'url' => $profile['whatsapp'], 'class' => 'link-whatsapp'],
+  ['label' => 'Instagram', 'text' => $profile['instagramLabel'], 'url' => $profile['instagram'], 'class' => 'link-instagram'],
+  ['label' => 'Email', 'text' => $profile['email'], 'url' => 'mailto:' . $profile['email'], 'class' => 'link-email'],
+];
+
+$works = [
+  [
+    'category' => 'Dashboard Admin',
+    'title' => 'Sistem PPDB SMK Wira Buana',
+    'description' => 'Dashboard admin untuk memantau pendaftar, verifikasi, pembayaran, distribusi jurusan, dan tren data melalui grafik.',
+    'result' => 'Data pendaftar lebih mudah dipantau dalam satu layar.',
+    'image' => 'Screenshot 2026-05-15 160504.png',
+  ],
+  [
+    'category' => 'Personal Branding',
+    'title' => 'Website Portofolio Dinamis',
+    'description' => 'Portofolio berbasis PHP dengan data profil, link sosial, karya, dan layanan yang bisa diedit dari satu file.',
+    'result' => 'Siap dipakai untuk bio Instagram dan LinkedIn.',
+  ],
+  [
+    'category' => 'Frontend',
+    'title' => 'Landing Page Responsive',
+    'description' => 'Halaman promosi mobile-friendly dengan tampilan bersih, CTA jelas, dan layout yang tetap nyaman di desktop.',
+    'result' => 'Lebih mudah mengarahkan pengunjung ke kontak.',
+  ],
+  [
+    'category' => 'Web App',
+    'title' => 'Sistem CRUD Sederhana',
+    'description' => 'Konsep aplikasi untuk mengelola data dengan fitur tambah, ubah, hapus, pencarian, dan tampilan admin sederhana.',
+    'result' => 'Cocok untuk kebutuhan internal skala kecil.',
+  ],
+];
+
+$services = [
+  ['title' => 'Website profil & portofolio', 'text' => 'Membangun personal site, link bio, company profile, dan landing page yang terlihat kredibel di HP maupun desktop.'],
+  ['title' => 'Aplikasi web sederhana', 'text' => 'Membuat fitur login, CRUD, pencarian, halaman admin, dan integrasi database menggunakan PHP dan MySQL.'],
+  ['title' => 'Revamp tampilan web', 'text' => 'Merapikan layout lama agar lebih modern, responsive, cepat dibaca, dan nyaman untuk kebutuhan promosi.'],
+];
+
+$skills = ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Responsive UI', 'Dashboard', 'Landing Page'];
+
+$process = [
+  ['title' => 'Brief singkat', 'text' => 'Kamu kirim tujuan website, contoh referensi, dan fitur yang dibutuhkan.'],
+  ['title' => 'Rancang tampilan', 'text' => 'Saya susun struktur halaman, prioritas konten, dan alur user yang paling penting.'],
+  ['title' => 'Build & rapikan', 'text' => 'Website dibuat responsive, diuji di layar kecil, lalu siap dipasang ke link bio.'],
+];
+
+$faqs = [
+  ['question' => 'Bisa untuk link bio Instagram?', 'answer' => 'Bisa. Struktur halaman ini dibuat mobile-first supaya nyaman dibuka dari bio IG, WhatsApp, dan LinkedIn.'],
+  ['question' => 'Bisa dibuat untuk bisnis kecil?', 'answer' => 'Bisa. Konten dan section bisa disesuaikan untuk profil usaha, jasa, sekolah, komunitas, atau personal brand.'],
+  ['question' => 'Apakah bisa pakai PHP dan database?', 'answer' => 'Bisa untuk fitur dasar seperti login, CRUD, pencarian, halaman admin, dan integrasi MySQL.'],
+];
+
+function e(string $value): string
+{
+  return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+}
+?>
 <!doctype html>
 <html lang="id">
 
@@ -8,8 +100,8 @@
   <meta
     name="description"
     content="Portofolio Alingga Mahesa Prima, web developer untuk website, landing page, dashboard, dan aplikasi web sederhana.">
-  <title>Alingga Mahesa Prima - Web Developer</title>
-  <link rel="preload" href="profil.jpg" as="image">
+  <title><?= e($profile['siteTitle']); ?></title>
+  <link rel="preload" href="<?= e($profile['photo']); ?>" as="image">
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -21,9 +113,9 @@
   <header class="site-header" aria-label="Navigasi utama">
     <a class="brand" href="#home" aria-label="Kembali ke beranda">
       <span class="brand-mark">
-        <img src="logo.png" alt="Logo LINGSDEV">
+        <img src="<?= e($profile['logo']); ?>" alt="Logo <?= e($profile['brand']); ?>">
       </span>
-      <span>LINGSDEV</span>
+      <span><?= e($profile['brand']); ?></span>
     </a>
     <nav class="nav-links" aria-label="Bagian halaman">
       <a href="#karya">Karya</a>
@@ -32,7 +124,7 @@
       <a href="#kontak">Kontak</a>
     </nav>
     <button class="icon-button theme-toggle" type="button" aria-label="Ganti tema" title="Ganti tema">
-      <span aria-hidden="true">&#9728;</span>
+      <span aria-hidden="true">☀</span>
     </button>
   </header>
 
@@ -46,11 +138,11 @@
       </div>
       <div class="hero-inner">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Web Developer / PHP / Frontend</p>
-          <h1 id="hero-title">Website modern yang siap dipakai.</h1>
-          <p class="lead">Saya membangun website, landing page, dashboard, dan aplikasi web sederhana yang cepat dibuka, rapi di HP, dan mudah dipahami oleh user.</p>
+          <p class="eyebrow"><?= e($profile['status']); ?></p>
+          <h1 id="hero-title"><?= e($profile['headline']); ?></h1>
+          <p class="lead"><?= e($profile['description']); ?></p>
           <div class="hero-actions" aria-label="Aksi utama">
-            <a class="button button-primary magnetic" href="https://wa.me/6289652936084">Chat WhatsApp</a>
+            <a class="button button-primary magnetic" href="<?= e($profile['whatsapp']); ?>">Chat WhatsApp</a>
             <a class="button button-secondary magnetic" href="#karya">Lihat karya</a>
             <button class="button button-secondary magnetic share-button" type="button">Share profil</button>
           </div>
@@ -58,77 +150,54 @@
 
         <aside class="profile-panel reveal tilt-card" aria-label="Profil singkat">
           <div class="photo-shell">
-            <img src="assets/profil.jpg" alt="Foto profil Alingga Mahesa Prima">
+            <img src="<?= e($profile['photo']); ?>" alt="Foto profil <?= e($profile['name']); ?>">
           </div>
           <div class="profile-info">
             <p>Available for project</p>
-            <h2>Alingga Mahesa Prima</h2>
-            <span>alinggamahesa8@gmail.com</span>
+            <h2><?= e($profile['name']); ?></h2>
+            <span><?= e($profile['email']); ?></span>
           </div>
         </aside>
       </div>
 
       <div class="metric-strip" aria-label="Highlight kemampuan">
-        <div class="reveal">
-          <strong>PHP</strong>
-          <span>Backend utama</span>
-        </div>
-        <div class="reveal">
-          <strong>Mobile</strong>
-          <span>Design-first</span>
-        </div>
-        <div class="reveal">
-          <strong>Fast</strong>
-          <span>Loading ringan</span>
-        </div>
+        <?php foreach ($metrics as $metric): ?>
+          <div class="reveal">
+            <strong><?= e($metric['value']); ?></strong>
+            <span><?= e($metric['label']); ?></span>
+          </div>
+        <?php endforeach; ?>
       </div>
     </section>
 
     <section class="quick-links" aria-label="Link cepat">
-      <a class="quick-link link-whatsapp reveal magnetic" href="https://wa.me/6289652936084">
-        <span>WhatsApp</span>
-        <strong>Diskusi project</strong>
-      </a>
-      <a class="quick-link link-instagram reveal magnetic" href="https://instagram.com/alingga2605">
-        <span>Instagram</span>
-        <strong>@alingga2605</strong>
-      </a>
-      <a class="quick-link link-email reveal magnetic" href="mailto:alinggamahesa8@gmail.com">
-        <span>Email</span>
-        <strong>alinggamahesa8@gmail.com</strong>
-      </a>
+      <?php foreach ($quickLinks as $link): ?>
+        <a class="quick-link <?= e($link['class']); ?> reveal magnetic" href="<?= e($link['url']); ?>">
+          <span><?= e($link['label']); ?></span>
+          <strong><?= e($link['text']); ?></strong>
+        </a>
+      <?php endforeach; ?>
     </section>
 
     <section class="stats-bar" aria-label="Statistik singkat">
-      <div class="stat-item reveal">
-        <strong>4+</strong>
-        <span>Project konsep &amp; nyata</span>
-      </div>
-      <div class="stat-item reveal">
-        <strong>8</strong>
-        <span>Skill utama</span>
-      </div>
-      <div class="stat-item reveal">
-        <strong>&lt;24j</strong>
-        <span>Respon chat</span>
-      </div>
+      <?php foreach ($stats as $stat): ?>
+        <div class="stat-item reveal">
+          <strong><?= e($stat['value']); ?></strong>
+          <span><?= e($stat['label']); ?></span>
+        </div>
+      <?php endforeach; ?>
     </section>
 
     <section class="section intro" aria-labelledby="intro-title">
       <div class="section-label reveal">Tentang</div>
       <div class="intro-grid reveal">
-        <h2 id="intro-title">Saya suka mengubah brief singkat menjadi produk web yang jelas, modern, dan fungsional.</h2>
+        <h2 id="intro-title"><?= e($profile['aboutTitle']); ?></h2>
         <div class="intro-copy">
-          <p>Fokus saya ada di pengembangan website dengan HTML, CSS, JavaScript, PHP, dan MySQL. Cocok untuk kebutuhan portofolio, profil bisnis, sistem sekolah, landing page, sampai dashboard admin.</p>
+          <p><?= e($profile['aboutText']); ?></p>
           <div class="skill-list" aria-label="Skill programming">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>PHP</span>
-            <span>MySQL</span>
-            <span>Responsive UI</span>
-            <span>Dashboard</span>
-            <span>Landing Page</span>
+            <?php foreach ($skills as $skill): ?>
+              <span><?= e($skill); ?></span>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
@@ -145,60 +214,29 @@
 
       <div class="filter-bar reveal" aria-label="Filter karya">
         <button class="filter-button is-active" type="button" data-filter="all">Semua</button>
-        <button class="filter-button" type="button" data-filter="Dashboard Admin">Dashboard Admin</button>
-        <button class="filter-button" type="button" data-filter="Personal Branding">Personal Branding</button>
-        <button class="filter-button" type="button" data-filter="Frontend">Frontend</button>
-        <button class="filter-button" type="button" data-filter="Web App">Web App</button>
+        <?php foreach (array_values(array_unique(array_column($works, 'category'))) as $category): ?>
+          <button class="filter-button" type="button" data-filter="<?= e($category); ?>"><?= e($category); ?></button>
+        <?php endforeach; ?>
       </div>
 
       <div class="work-grid">
-        <article class="work-card tilt-card reveal featured-work" data-category="Dashboard Admin">
-          <div class="work-media">
-            <img src="Screenshot 2026-05-15 160504.png" alt="Tampilan Sistem PPDB SMK Wira Buana">
-          </div>
-          <div class="work-body">
-            <span class="tag">Dashboard Admin</span>
-            <h3>Sistem PPDB SMK Wira Buana</h3>
-            <p>Dashboard admin untuk memantau pendaftar, verifikasi, pembayaran, distribusi jurusan, dan tren data melalui grafik.</p>
-            <small>Data pendaftar lebih mudah dipantau dalam satu layar.</small>
-          </div>
-        </article>
-
-        <article class="work-card tilt-card reveal" data-category="Personal Branding">
-          <div class="work-media">
-            <span>02</span>
-          </div>
-          <div class="work-body">
-            <span class="tag">Personal Branding</span>
-            <h3>Website Portofolio Dinamis</h3>
-            <p>Portofolio berbasis PHP dengan data profil, link sosial, karya, dan layanan yang bisa diedit dari satu file.</p>
-            <small>Siap dipakai untuk bio Instagram dan LinkedIn.</small>
-          </div>
-        </article>
-
-        <article class="work-card tilt-card reveal" data-category="Frontend">
-          <div class="work-media">
-            <span>03</span>
-          </div>
-          <div class="work-body">
-            <span class="tag">Frontend</span>
-            <h3>Landing Page Responsive</h3>
-            <p>Halaman promosi mobile-friendly dengan tampilan bersih, CTA jelas, dan layout yang tetap nyaman di desktop.</p>
-            <small>Lebih mudah mengarahkan pengunjung ke kontak.</small>
-          </div>
-        </article>
-
-        <article class="work-card tilt-card reveal" data-category="Web App">
-          <div class="work-media">
-            <span>04</span>
-          </div>
-          <div class="work-body">
-            <span class="tag">Web App</span>
-            <h3>Sistem CRUD Sederhana</h3>
-            <p>Konsep aplikasi untuk mengelola data dengan fitur tambah, ubah, hapus, pencarian, dan tampilan admin sederhana.</p>
-            <small>Cocok untuk kebutuhan internal skala kecil.</small>
-          </div>
-        </article>
+        <?php foreach ($works as $index => $work): ?>
+          <article class="work-card tilt-card reveal <?= $index === 0 ? 'featured-work' : ''; ?>" data-category="<?= e($work['category']); ?>">
+            <div class="work-media">
+              <?php if (!empty($work['image'])): ?>
+                <img src="<?= e($work['image']); ?>" alt="Tampilan <?= e($work['title']); ?>">
+              <?php else: ?>
+                <span><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?></span>
+              <?php endif; ?>
+            </div>
+            <div class="work-body">
+              <span class="tag"><?= e($work['category']); ?></span>
+              <h3><?= e($work['title']); ?></h3>
+              <p><?= e($work['description']); ?></p>
+              <small><?= e($work['result']); ?></small>
+            </div>
+          </article>
+        <?php endforeach; ?>
       </div>
     </section>
 
@@ -210,21 +248,13 @@
         </div>
       </div>
       <div class="service-list">
-        <article class="service-item reveal">
-          <span>01</span>
-          <h3>Website profil &amp; portofolio</h3>
-          <p>Membangun personal site, link bio, company profile, dan landing page yang terlihat kredibel di HP maupun desktop.</p>
-        </article>
-        <article class="service-item reveal">
-          <span>02</span>
-          <h3>Aplikasi web sederhana</h3>
-          <p>Membuat fitur login, CRUD, pencarian, halaman admin, dan integrasi database menggunakan PHP dan MySQL.</p>
-        </article>
-        <article class="service-item reveal">
-          <span>03</span>
-          <h3>Revamp tampilan web</h3>
-          <p>Merapikan layout lama agar lebih modern, responsive, cepat dibaca, dan nyaman untuk kebutuhan promosi.</p>
-        </article>
+        <?php foreach ($services as $index => $service): ?>
+          <article class="service-item reveal">
+            <span><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?></span>
+            <h3><?= e($service['title']); ?></h3>
+            <p><?= e($service['text']); ?></p>
+          </article>
+        <?php endforeach; ?>
       </div>
     </section>
 
@@ -237,21 +267,13 @@
         <p>Bagian ini membantu orang yang melihat portfolio kamu langsung paham cara mulai kerja sama.</p>
       </div>
       <div class="process-list">
-        <article class="process-item reveal">
-          <span>01</span>
-          <h3>Brief singkat</h3>
-          <p>Kamu kirim tujuan website, contoh referensi, dan fitur yang dibutuhkan.</p>
-        </article>
-        <article class="process-item reveal">
-          <span>02</span>
-          <h3>Rancang tampilan</h3>
-          <p>Saya susun struktur halaman, prioritas konten, dan alur user yang paling penting.</p>
-        </article>
-        <article class="process-item reveal">
-          <span>03</span>
-          <h3>Build &amp; rapikan</h3>
-          <p>Website dibuat responsive, diuji di layar kecil, lalu siap dipasang ke link bio.</p>
-        </article>
+        <?php foreach ($process as $index => $step): ?>
+          <article class="process-item reveal">
+            <span><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?></span>
+            <h3><?= e($step['title']); ?></h3>
+            <p><?= e($step['text']); ?></p>
+          </article>
+        <?php endforeach; ?>
       </div>
     </section>
 
@@ -263,18 +285,12 @@
         </div>
       </div>
       <div class="faq-list">
-        <details class="faq-item reveal">
-          <summary>Bisa untuk link bio Instagram?</summary>
-          <p>Bisa. Struktur halaman ini dibuat mobile-first supaya nyaman dibuka dari bio IG, WhatsApp, dan LinkedIn.</p>
-        </details>
-        <details class="faq-item reveal">
-          <summary>Bisa dibuat untuk bisnis kecil?</summary>
-          <p>Bisa. Konten dan section bisa disesuaikan untuk profil usaha, jasa, sekolah, komunitas, atau personal brand.</p>
-        </details>
-        <details class="faq-item reveal">
-          <summary>Apakah bisa pakai PHP dan database?</summary>
-          <p>Bisa untuk fitur dasar seperti login, CRUD, pencarian, halaman admin, dan integrasi MySQL.</p>
-        </details>
+        <?php foreach ($faqs as $faq): ?>
+          <details class="faq-item reveal">
+            <summary><?= e($faq['question']); ?></summary>
+            <p><?= e($faq['answer']); ?></p>
+          </details>
+        <?php endforeach; ?>
       </div>
     </section>
 
@@ -284,21 +300,21 @@
         <h2 id="contact-title">Punya ide website? Kirim brief singkat, saya bantu rapikan jadi rencana kerja.</h2>
       </div>
       <div class="contact-actions">
-        <a class="button button-primary magnetic" href="https://wa.me/6289652936084">Mulai dari WhatsApp</a>
-        <a class="button button-dark magnetic" href="mailto:alinggamahesa8@gmail.com">Kirim Email</a>
-        <button class="button button-dark magnetic copy-email" type="button" data-email="alinggamahesa8@gmail.com">Copy Email</button>
+        <a class="button button-primary magnetic" href="<?= e($profile['whatsapp']); ?>">Mulai dari WhatsApp</a>
+        <a class="button button-dark magnetic" href="mailto:<?= e($profile['email']); ?>">Kirim Email</a>
+        <button class="button button-dark magnetic copy-email" type="button" data-email="<?= e($profile['email']); ?>">Copy Email</button>
       </div>
     </section>
   </main>
 
   <div class="floating-actions" aria-label="Aksi cepat">
-    <a href="https://wa.me/6289652936084" aria-label="WhatsApp">WA</a>
-    <button class="copy-email" type="button" data-email="alinggamahesa8@gmail.com" aria-label="Copy email">@</button>
-    <button class="back-top" type="button" aria-label="Kembali ke atas">&#8593;</button>
+    <a href="<?= e($profile['whatsapp']); ?>" aria-label="WhatsApp">WA</a>
+    <button class="copy-email" type="button" data-email="<?= e($profile['email']); ?>" aria-label="Copy email">@</button>
+    <button class="back-top" type="button" aria-label="Kembali ke atas">↑</button>
   </div>
 
   <footer class="site-footer">
-    <span>&copy; 2026 Alingga Mahesa Prima</span>
+    <span>&copy; <?= date('Y'); ?> <?= e($profile['name']); ?></span>
     <a href="#home">Kembali ke atas</a>
   </footer>
   <script>
@@ -350,10 +366,10 @@
     const savedTheme = localStorage.getItem('portfolio-theme');
     if (savedTheme === 'dark') {
       document.body.classList.remove('theme-light');
-      if (themeToggle) themeToggle.querySelector('span').textContent = '\u263e';
+      if (themeToggle) themeToggle.querySelector('span').textContent = '☾';
     } else {
       document.body.classList.add('theme-light');
-      if (themeToggle) themeToggle.querySelector('span').textContent = '\u2600';
+      if (themeToggle) themeToggle.querySelector('span').textContent = '☀';
     }
 
     if ('IntersectionObserver' in window) {
@@ -445,7 +461,7 @@
     themeToggle?.addEventListener('click', () => {
       const isLight = document.body.classList.toggle('theme-light');
       localStorage.setItem('portfolio-theme', isLight ? 'light' : 'dark');
-      themeToggle.querySelector('span').textContent = isLight ? '\u2600' : '\u263e';
+      themeToggle.querySelector('span').textContent = isLight ? '☀' : '☾';
     });
 
     backTop?.addEventListener('click', () => {
